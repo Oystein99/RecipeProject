@@ -1,0 +1,125 @@
+
+.form-group{
+    margin-top: 20vh;
+    object-fit: contain;
+    width: 80vw;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    box-shadow: 4px 10px 7px;
+    color: #DDD;
+    padding:5%;
+}
+
+.form-group h2{
+    position: relative;
+    text-align: center;
+    top: 6vh;
+    color: black;
+}
+.form-group p{
+    position: relative;
+}
+.form-group input, .form-group select{
+    position: relative;
+    border-radius: 20px;
+    border: 1px;
+    border-style: solid;
+    border-color: #D8D8D8;
+    top: 10vh;
+    height: 45px;
+    width: 275px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 20px;
+    margin-top: 5vh;
+    z-index: 1;
+}
+.form-group textarea{
+    position: relative;
+    top: 10vh;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 4px 20px;
+    margin-top: 5vh;
+    z-index: 1;
+    resize: none;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #D8D8D8;
+    padding: 4px 20px;
+    padding-top: 20px;
+}
+.form-group label{
+    position: absolute;
+    top: 12vh;
+    left: 31vw;
+    color: black;
+    z-index: 1;
+}
+
+.form-group li{
+    list-style: none;
+}
+.form-group ul{
+    position: absolute;
+    top: 85vh;
+    left: 25vw;
+}
+.form-group button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 220px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); 
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.form-group button:hover{
+    background-color: #006A23;
+}
+.wrapper input{
+    top: 10vh;
+    height: 40px;
+    width: 120px;
+    padding: 4px 15px;
+    margin-top: 3vh;
+    z-index: 1;
+    left: 16%;
+    margin-left: 5%;
+}
+.wrapper label{
+    position: relative;
+    left: 24%;
+    top: 6vh;
+}
+.wrapper select{
+    position: relative;
+    width: 150px;
+    left: 20%;
+}
+#id_image{
+    background-color: #008A43;
+    border: none;
+    cursor: pointer;
+}
+#id_image:hover{
+    background-color: #006A23;
+}
+#id_image::-webkit-file-upload-button {
+    visibility: hidden;
+}
+#add{
+    position: absolute;
+    width: 47px;
+    left: 85%;
+    top: 87%;
+    border-radius: 100%;
+}

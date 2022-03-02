@@ -1,0 +1,13 @@
+*.log
+*.pyc
+*.pot
+__pycache__
+.DS_Store
+*.sqlite3
+media/profilePics/*
+*/*/*/__pycache__/
+
+*/*/__pycache__/
+
+*/__pycache__/
+db.sqlite3

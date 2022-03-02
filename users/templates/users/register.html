@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+{% block header %}
+     <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
+{% endblock %}
+{% block title%}Register{% endblock %}
+<body>
+{% block content %}
+    <div class ="register">
+        <h2>Register into Foodule</h2>
+        <form onkeyup="passwordCheck()" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="form-group">
+                <button type="submit" onsubmit="return passSubmit()">Sign Up</button>
+            </div>
+        </form>
+        <div class="haveaccount">
+            <small class="text-muted">
+                Already have an account? <a href="/login">Sign In</a>
+            </small>
+        </div>
+    </div>
+   
+{% endblock %}
+</body>
+{% block script %}
+<script>
+
+    var passwordControl = false;
+    function passSubmit() {
+        res = false;
+        var number = document.getElementsByClassName('green').length;
+        console.log(number);
+        if(number == 4){
+            res = true;
+        }else{
+            res = false;
+        }
+        return res && passwordControl;
+    }
+
+
+    var el = document.querySelectorAll(".register ul > li");
+    var mostCommonPasswords = ["picture1","password","qwertyui","Million2","iloveyou","aaron431","password1","qqww1122"];
+    var reg = /^\d+$/;
+    function passwordCheck(){
+        passwordControl = true;
+        password = document.getElementById('id_password1').value;
+        if(password.length>= 8){
+            el[1].className = 'green';
+            passwordControl = passwordControl && true;
+        }else{
+            el[1].className = 'red';
+            passwordControl = passwordControl && false;
+        }   
+        
+        if(!password.includes(document.getElementById('id_username').value) && !password.includes(document.getElementById('id_first_name').value) && !password.includes(document.getElementById('id_last_name').value)){
+            el[0].className = 'green';
+            passwordControl = passwordControl && true;
+        }
+        else{
+            el[0].className = 'red';
+            passwordControl = passwordControl && false;
+        }
+        if(mostCommonPasswords.includes(password)){
+            el[2].className = 'red';
+            passwordControl = passwordControl && false;
+        }
+        else{
+            el[2].className = 'green';
+            passwordControl = passwordControl && true;
+        }
+        if(reg.test(password)){
+            el[3].className = 'red';
+            passwordControl = passwordControl && false;
+        }
+        else{
+            el[3].className = 'green';
+            passwordControl = passwordControl && true;
+        }
+
+    }
+    
+</script>
+{% endblock  %}
+</html>

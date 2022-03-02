@@ -1,0 +1,153 @@
+.wrapper{
+    position: relative;
+    box-shadow: 2px 8px 9px;
+    border-radius: 10px;
+    margin-top: 20vh;
+    width: 90%;
+    color: #DDD;
+    left: 50%;
+    transform: translate(-50%);
+}
+.wrap{
+    position: relative;
+    color: #444;
+}
+.leftcol, .image, .rightcol{
+    position: relative;
+    width: -moz-fit-content;
+}
+
+@supports not ( -moz-appearance:none ){
+    .leftcol, .image, .rightcol{
+        position: relative;
+        width: fit-content;
+    }
+}
+.ing{
+    width: 50%;
+}
+.image{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+.leftcol{
+    top: 15vh;
+    left: 10%;
+}
+.rightcol{
+    position: relative;
+    bottom: 50vh;
+    left: 75%;
+}
+#like{
+    position: relative;
+    top: 5vh;
+    height: 40px;
+    width: 40px;
+}
+.image img{
+    object-fit: cover;
+    height: 40vh;
+    width: 35vw;
+}
+.author{
+    position: absolute;
+    bottom: 4%;
+    left: 70%;
+}
+.author img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border: 3px solid;
+    border-radius: 100%;
+    border-color: #008A43;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-block;
+    cursor: pointer;
+}
+.author h4{
+    position: absolute;
+    width: fit-content;
+    left: 115%;
+    display: inline-block;
+    bottom: 40%;
+    font-weight: 500;
+    cursor: pointer;
+}
+.author h4:hover{
+    color: #008A43;
+}
+.recip{
+    padding-left: 10vw;
+    padding-right: 10vw;
+    color: #444;
+}
+.recip h2{
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.recip ol li{
+    margin-top: 4%;
+}
+#diff{
+    margin-top: 2vh;
+}
+#title{
+    position: relative;
+    text-align: center;
+    top: 5vh;
+}
+.Easy{
+    color: #2C7F21;
+}
+
+.Medium{
+    color: #FCC254;
+}
+.Hard{
+    color: #ED4A4A;
+}
+
+.checked {
+    color: #2C7F21;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show_rate_button {
+    background-color: white;
+    color: rgb(44, 44, 44);
+    font-weight: bolder;
+    border-radius: 8px;
+    text-align: center;
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    padding-top: 2px;
+    font-size: 14px;
+    border: none    ;
+    transition-duration: 0.4s;
+    outline: none;
+    border: 2px solid #2C7F21;
+}
+
+.show_rate_button:hover {
+    background-color: #2C7F21;
+    color: white;
+}
+
+.star-btn {
+    background-color: inherit !important;
+    border: 0 !important;
+}
+
+.priv_rating_form {
+    size: 20px;
+}

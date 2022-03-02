@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/cssfilepath.css' %}">
+{% endblock %}
+
+{% block title%} Home {% endblock %}
+{% block content %}
+<div class="home">
+    <div class="cartel1">
+            <div class="text">
+                <h2>The easiest way to schedule your meals.</h2>
+                <h3>A totally free platform for food enthusiasts.</h3>
+            </div>
+            <button onclick="location.href='/register'">Join now</button>
+            <img src="{% static 'idea_logo.png'%}" alt="Logo">
+    </div>
+    <div class="cartel2">
+        <img src="{% static 'background2.jpg' %}" alt="Background Image">
+        <p>In Foodule, we believe in healthy, tasty, flexible and balanced food.<br>  We want to help <span id="you">YOU</span> organize your meals or to simply look for recipes. <br>Have you alredy created a <span id="planning">Plan</span>   ?</p>
+        <button onclick="location.href='/profile'">Create a Plan</button>
+
+    </div>
+</div>
+{% endblock %}

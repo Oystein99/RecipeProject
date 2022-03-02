@@ -1,0 +1,107 @@
+
+
+.cartel1{
+    height: 100vh;
+    position: relative;
+}
+.cartel1 .text{
+    position: absolute;
+    display: inline-block;
+    left: 10%;
+    bottom: 60%;
+    transform: translate(-10%);
+    color: rgb(94, 95, 93);
+    width: fit-content;
+}
+.cartel1 button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 60%;
+    position: absolute;
+    left: 25%;
+    transform: translate(-25%,-60%); 
+    border: none;
+    color: white;  
+    cursor: pointer;
+    z-index: 5;
+    font-size: 25px;
+    box-shadow: 4px 4px 10px rgba(53, 53, 53, 0.5);
+}
+.cartel1 button:hover{
+    background-color: #006A23;
+}
+.cartel1 h2{
+    font-size: 50px;
+    color: rgb(94, 95, 93);
+}
+.cartel1 h3{
+    font-size: 35px;
+    color: rgb(185, 184, 184);
+    font-style: italic;
+}
+.cartel1 img{
+    height: 60%;
+    position: absolute;
+    top: 60%;
+    left: 90%;
+    transform: translate(-90%, -60%);
+}
+.cartel2{
+    height: 100vh;
+
+}
+.cartel2 p{
+    position: relative;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    z-index: 5;
+}
+
+.cartel2 img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.cartel2 button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    border: none;
+    color: white;  
+    cursor: pointer;
+    z-index: 5;
+    font-size: 15px;
+    box-shadow: 4px 4px 10px rgba(53, 53, 53, 0.5);
+}
+.cartel2 button:hover{
+    background-color: #006A23;
+}
+#you{
+    color: #befddd;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#planning{
+    color: #befddd;
+    font-style: italic;
+    font-size: 40px;
+    font-weight: 700;
+}
+

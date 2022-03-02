@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/style_confirmation.css' %}">
+{% endblock %}
+{% block title %} Confirmation {% endblock %}
+
+{%block content%}
+{% csrf_token %}
+<div class = 'header1'>
+    <h2>These are the tags, automatically created when you made {{recipe}}:</h2>
+</div>
+<form method= "POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class ='content'>
+            <ul class= 'taglist'>
+                {% for tags in keyword %}
+                    <li>
+                        {{tags}}
+                    </li>
+                {% endfor %}
+            </ul> 
+
+    <div class = 'add_button'>
+        <input type="button" value='+' onClick="addRow('tagtable')" />
+    </div>
+        <div class = 'extra_tags' >
+            <table id="tagtable" class="tag_table">
+                <tr>
+                    <td>
+                        <label>Tag 1:</label>
+                        <input type="text" name="Tag1" />
+                    </td>
+                </tr>
+            </table>
+        </div> 
+
+        <div class = 'confirm'>
+            <button type="submit">Confirm</button>
+        </div>
+    
+    </div>
+</form>
+
+{% endblock %}
+
+{% block script %}
+{% csrf_token %}
+<script>
+    
+    var next_tagId = 2;
+    //Function to add more rows of tag input elements for user to add
+    function addRow(tableID) {
+        var table = document.getElementById(tableID);
+        var rows = table.rows.length;
+
+        if (rows < 5) { //Limit for how many rows of input elements the user can make
+
+            var row = table.insertRow(rows);
+            var columns = table.rows[0].cells.length;
+
+            for (var i = 0; i < columns; i++) {
+                var new_row = row.insertCell(i);
+                new_row.innerHTML = '<label>Tag ' + next_tagId + ':</label>' +
+                    '<input type="text" required="required" name="tag_input' + next_tagId + '" />';
+                next_tagId++;
+            }
+        } else {
+            alert("Cannot add more tags");
+
+        }
+    }
+       
+</script>
+{% endblock %}
+</html>

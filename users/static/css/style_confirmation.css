@@ -1,0 +1,104 @@
+
+.add_button{
+    top: 84px;
+    position: relative;
+    left: 32%;
+    transform: translate(-50%);
+    cursor: pointer;
+    width: 40px;
+}
+li,label{
+    color: #444;
+}
+.content {
+    margin-top: 20vh;
+    height: 105vh;
+    width: 50vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    box-shadow: 4px 10px 7px;
+    color: #DDD;
+}
+.tag{
+    position: relative;
+    border-radius: 20px;
+    border-style: solid;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1px 10px;
+}
+.header1{
+    text-align: center;
+    padding: 80px;
+}
+/* .header2{
+    text-align: center;
+    padding: 0px;
+} */
+.taglist{
+    position: relative;
+    list-style-type: none;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #D8D8D8;
+    top: -1vh;
+    width: 275px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 20px;
+    margin-top: 5vh;
+    z-index: 1;
+}
+.add_button input{
+    position: relative;
+    border-radius: 100%;
+    border: solid;
+    left: 30vw;
+    width: 30px;
+    height: 30px;
+    border-color: #008A43;
+    background-color: #008A43;
+    color: #FFF;
+    cursor: pointer;
+    
+}
+.confirm button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 18px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.tag_table{
+    position: relative;
+    top: -1vh;
+    height: 45px;
+    width: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 20px;
+    margin-top: 5vh;
+    z-index: 1;
+}
+.tag_table input{
+    position: relative;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 4px 3px 3px #DDD;
+    height: 45px;
+    width: 275px;
+    padding: 4px 20px;
+
+
+}
+

@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title%} {{profileUser.user.username}} {% endblock %}
+
+{% block content %}
+<div class='profile'>
+    <div class='left-col'>
+        {% if user%}
+        {% if profileUser.image %}
+            <img id='profilePicture' alt='profile pic' src="{{profileUser.image.url}}" />
+        {% else %}
+            <img id='profilePicture' alt='profile pic' src="" />
+        {% endif %}
+        <h1>{{profileUser.user.first_name}} {{profileUser.user.last_name}}</h1> 
+        <h4>@{{profileUser.user.username}}</h4>
+        <textarea disabled id='bio'>{{profileUser.biography}}</textarea>
+        <div class='editNoClick' id='edit'>
+            <button onclick="showForm()">Edit Profile</button>
+            <button class= 'addrecipes_button' onclick="location.href = '/addrecipes'">Add recipes</button>
+            <form action="{% url 'profile' %}" enctype="multipart/form-data" method="POST" class='form' id='editProfile'style="display: none;">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button id='saveButton' type="submit">Save</button>
+                <button type="button" onclick="hideForm()">Discard</button>
+            </form>
+        </div>
+    </div>
+    <div class="tabs">
+        <ul>
+            <li><button id='but1' class="active" onclick="tab()">My recipes</button></li>
+            <li><button id='but2' onclick="tab2()">Favourite recipes</button></li>
+            <li><button id='but3' onclick="tab3()">My Plan</button></li>
+        </ul>
+    </div>
+    {% if recipes %}
+    <div class="recipes" id='recipes'>
+        <ul>
+            {% for recipe in recipes %}
+            <a href={% url 'recipe' recipe.id %}>
+                <div class="recipewrap">
+                    <div class="name">
+                        <h2>{{recipe.name}}</h2>
+                    </div>
+                    <div class="rightcol">
+                        <div class="timetomake">
+                            Time to make: <br>
+                            {{recipe.timetomake}}
+                        </div>
+                        <div class="{{recipe.difficulty}}">
+                            {% if recipe.difficulty != '' %}
+                                <br>Difficulty: {{recipe.difficulty}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{{ recipe.image.url }}"/>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+        <div class="recipes" id="recipes">
+            <h3> You don't have any recipes yet! </h3>
+        </div>
+    {% endif %}
+    {% if liked_recipes %}
+    <div style="display: none;" class="likedRecipes" id='likedRecipe'>
+         <ul>
+            {% for l_recipe in liked_recipes %}
+            <a href={% url 'recipe' l_recipe.recipe.id %}>
+                <div class="recipewrap">
+                    <div class="name">
+                        <h2>{{l_recipe.recipe.name}}</h2>
+                    </div>
+                    <div class="rightcol">
+                        <div class="timetomake">
+                            Time to make: <br>
+                            {{l_recipe.recipe.timetomake}}
+                        </div>
+                        <div class="{{l_recipe.recipe.difficulty}}">
+                            {% if l_recipe.recipe.difficulty != '' %}
+                                <br>Difficulty: {{l_recipe.recipe.difficulty}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{{ l_recipe.recipe.image.url }}"/>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+        </ul>
+    </div>
+        {% else %}
+        <div style="display: none;" class="likedRecipes" id='likedRecipe'>
+            <h3> You don't have any favourite recipes yet!</h3>
+        </div>
+        {% endif %}
+    {% if recommended_recipe %}
+        <div style="display: none;" class="planning" id='planning'> 
+            <ul>
+                <a href={% url 'recipe' recommended_recipe.id %}>
+                    <div class="recipewrap">
+                        <div class="name">
+                            <h2>{{recommended_recipe.name}}</h2>
+                        </div>
+                        <div class="rightcol">
+                            <div class="timetomake">
+                                Time to make: <br>
+                                {{recommended_recipe.timetomake}}
+                            </div>
+                            <div class="{{recommended_recipe.difficulty}}">
+                                {% if recommended_recipe.difficulty != '' %}
+                                    <br>Difficulty: {{recommended_recipe.difficulty}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="{{ recommended_recipe.image.url }}"/>
+                        </div>
+                    </div>
+                </a> 
+            </ul>
+        </div>
+    {% else %}
+        <div style="display: none;" class="planning" id='planning'> 
+            <h3> No recipe recommended!</h3> 
+        </div>
+    {% endif %}
+      
+   
+{% else %}
+    <h1>NO USER FOUND</h1>
+{% endif %}
+{% endblock %}
+</div>
+{% block script %}
+
+<script>
+    var edit = false;
+    function showForm() {
+        document.getElementById('edit').className = 'edit';
+        document.getElementById('editProfile').style.display = 'block';
+        document.getElementById('add_recipe').style.top = '80vh';
+        edit = true;
+        
+    }
+    function hideForm() {
+        document.getElementById('edit').className = 'editNoClick';
+        document.getElementById('editProfile').style.display = 'none';
+        document.getElementById('email').value = "{{profileUser.user.email}}";
+        document.getElementById('username').value = "{{profileUser.user.username}}";
+        document.getElementById('biography').value = "{{profileUser.biography}}";
+        document.getElementById('add_recipe').style.top = '58vh';
+        edit = false;
+        
+    }
+    function tab() {
+        document.getElementById('likedRecipe').style.display = 'none';  
+        document.getElementById('planning').style.display = 'none'; 
+        document.getElementById('recipes').style.display = ''; 
+        document.getElementById('but1').className='active';
+        document.getElementById('but2').className='';
+        document.getElementById('but3').className = ''
+    }
+    function tab2() {
+        document.getElementById('likedRecipe').style.display = '';  
+        document.getElementById('planning').style.display = 'none'; 
+        document.getElementById('recipes').style.display = 'none'; 
+        document.getElementById('but1').className='';
+        document.getElementById('but2').className='active';
+        document.getElementById('but3').className = ''
+    }
+    function tab3() {
+        document.getElementById('likedRecipe').style.display = 'none';  
+        document.getElementById('planning').style.display = ''; 
+        document.getElementById('recipes').style.display = 'none';  
+        document.getElementById('but1').className='';
+        document.getElementById('but2').className='';
+        document.getElementById('but3').className = 'active'
+    }
+</script>
+{% endblock %} 

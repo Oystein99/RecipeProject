@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+    <link rel="stylesheet" href="{% static 'css/style_addrecipe.css' %}">
+    {% endblock %}
+    {% block title%} Add Recipes {% endblock %}
+    
+</head>
+<body> 
+    {%block content%}
+    <div class = "addrecipes">
+        <form method= "POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <p>
+                {{form.name.label_tag}}
+                {{form.name}}
+                </p>
+                <p>
+                {{form.timetomake.label_tag}}
+                {{form.timetomake}}
+                </p>
+                <p>
+                {{form.image.label_tag}}
+                {{form.image}}
+                </p>
+                <p>
+                {{form.recipe.label_tag}}
+                {{form.recipe}}
+                </p>
+                <p>
+                {{form.difficulty.label_tag}}
+                {{form.difficulty}}
+                </p>
+                <button type="button" id="add" onclick="addIngredient()">+</button>
+                <div class="wrapper" id="wrapper">
+                    <div class='ingredient_0'>
+                        <label for='ingredient_0_name'>Ingredient</label>
+                        <input name='ingredient_0_name' id='ingredient_0_name' type='text'>
+                        <label for='ingredient_0_amount'>Quantity</label>
+                        <input name='ingredient_0_amount' id='ingredient_0_amount' type='text'>
+                        <label for='ingredient_0_measurement'>Measurement</label>
+                        <select name='ingredient_0_measurement' id='ingredient_0_measurement'>
+                            <option value='g'>g</option>
+                            <option value='kg'>kg</option>
+                            <option value='mL'>mL</option>
+                            <option value='dL'>dL</option>
+                            <option value='L'>L</option>
+                            <option value='tablespoons'>tbsp</option>
+                            <option value='teaspoons'>tsp</option>
+                            <option value='cups'>cups</option>
+                            <option value='boats'>boats</option>
+                            <option value='ounces'>ounces</option>
+                            <option value='slices'>slices</option>
+                            <option value='pinch'>pinch</option>
+                            <option value='pounds'>pounds</option>
+                        </select>
+                    </div>
+                </div>
+                <input name="submit"id='submit' value="1" type="hidden">
+                <button id = "submit_button"type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+</body>
+</html>
+{% block script %}
+<script>
+    // Storing HTML code block in a variable
+    var i = 0;
+
+    function addIngredient() {
+        i++;
+        var codeBlock = "<div class='ingredient_"+i+"'><label for='ingredient_"+i+"_name'>Ingredient</label><input name='ingredient_"+i+"_name' id='ingredient_"+i+"_name' type='text'><label for='ingredient_"+i+"_amount'>Quantity</label><input name='ingredient_"+i+"_amount' id='ingredient_"+i+"_amount' type='text'><label for='ingredient_"+i+"_measurement'>Measurement</label><select name='ingredient_"+i+"_measurement' id='ingredient_"+i+"_measurement'><option value='g'>g</option><option value='kg'>kg</option><option value='mL'>mL</option><option value='dL'>dL</option><option value='L'>L</option><option value='tablespoons'>tbsp</option><option value='teaspoons'>tsp</option><option value='cups'>cups</option><option value='boats'>boats</option><option value='ounces'>ounces</option><option value='slices'>slices</option><option value='pinch'>pinch</option><option value='pounds'>pounds</option></select></div>"
+    // Inserting the code block to wrapper element
+        document.getElementById("wrapper").innerHTML += codeBlock;
+        var submit = document.getElementById("submit");
+        submit.setAttribute("value",i+1);
+    }
+</script> 
+{% endblock  %}

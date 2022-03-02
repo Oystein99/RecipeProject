@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/recipes.css' %}">
+{% endblock %}
+
+{% block title%} Recipes {% endblock %}
+
+{% block content %}
+    <div class="div-search">
+        <form action="" method="post" name="form-search" id="form-search">
+            {% csrf_token %}
+            <input type="text" name="search" id="search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="wrapper">
+        {% if recipes %}
+            {% for recipe in recipes %}
+                <a href={% url 'recipe' recipe.id %}>
+                    <div class="recipewrap" id={{recipe.id}}>
+                        <div class="name">
+                            <h2>{{recipe.name}}</h2>
+                        </div>
+                        <div class="rightcol">
+                            <div class="timetomake">
+                                Time to make: <br>
+                                {{recipe.timetomake}}
+                            </div>
+                            <div class="{{recipe.difficulty}}">
+                                {% if recipe.difficulty != '' %}
+                                    <br>Difficulty: {{recipe.difficulty}}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="image">
+                            <img src="{{ recipe.image.url }}"/>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        {% else %}
+            <h3>No recipes found!</h3>
+        {% endif %}
+{% endblock %} 

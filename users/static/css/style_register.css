@@ -1,0 +1,94 @@
+.register{
+    margin-top: 20vh;
+    height: 115vh;
+    width: 80vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    box-shadow: 4px 10px 7px;
+    color: #DDD;
+    
+}
+
+.register h2{
+    position: relative;
+    text-align: center;
+    top: 6vh;
+    color: #444;
+}
+.register p{
+    position: relative;
+}
+.register input{
+    position: relative;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 4px 3px 3px #DDD;
+    top: 10vh;
+    height: 45px;
+    width: 275px;
+    left: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 20px;
+    margin-top: 5vh;
+    z-index: 1;
+}
+.register label{
+    position: absolute;
+    top: 12vh;
+    left: 31vw;
+    color: #444;
+    z-index: 1;
+}
+
+.register li{
+    list-style: none;
+}
+.register ul{
+    position: absolute;
+    top: 85vh;
+    left: 25vw;
+}
+.register button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 220px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); 
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.register button:hover{
+    background-color: #006A23;
+}
+
+.haveaccount{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 235px;
+    color: #AAA;
+}
+.helptext {
+    display: none
+}
+
+.green{
+    color: #008A43;
+}
+.red{
+    color: red;
+}
+.errorlist{
+    display: none;
+}

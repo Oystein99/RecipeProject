@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title%} {{target_user.user.username}} {% endblock %}
+
+{% block content %}
+<div class='profile'>
+    <div class='left-col'>
+        {% if user%}
+        {% if target_user.image %}
+            <img id='profilePicture' alt='profile pic' src="{{target_user.image.url}}" />
+        {% else %}
+            <img id='profilePicture' alt='profile pic' src="" />
+        {% endif %}
+        <h1>{{target_user.user.first_name}} {{target_user.user.last_name}}</h1> 
+        <h4>@{{target_user.user.username}}</h4>
+        <textarea disabled id='bio'>{{target_user.biography}}</textarea>
+        
+    </div>
+    <div class="tabs">
+        <ul>
+            <li><button id='but1' class="active" onclick="tab()">Recipes</button></li>
+        </ul>
+    </div>
+    {% if target_recipes %}
+    <div class="recipes" id='recipes'>
+        <ul>
+            {% for recipe in target_recipes %}
+            <a href={% url 'recipe' recipe.id %}>
+                <div class="recipewrap">
+                    <div class="name">
+                        <h2>{{recipe.name}}</h2>
+                    </div>
+                    <div class="rightcol">
+                        <div class="timetomake">
+                            Time to make: <br>
+                            {{recipe.timetomake}} minutes
+                        </div>
+                        <div class="{{recipe.difficulty}}">
+                            {% if recipe.difficulty != '' %}
+                                <br>Difficulty: {{recipe.difficulty}}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="{{ recipe.image.url }}"/>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+        </ul>
+    </div>
+
+    {% else %}
+        <div class="recipes" id="recipes">
+            <h3> {{target_user.user.username}} haven't added any recipes! </h3>
+        </div>
+    {% endif %}
+{% else %}
+    <h1>NO USER FOUND</h1>
+{% endif %}
+{% endblock %}

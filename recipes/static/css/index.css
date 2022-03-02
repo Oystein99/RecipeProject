@@ -1,0 +1,20 @@
+.header {
+    font-size: 46px;
+    color: rgb(184, 103, 11);
+    text-align: center;
+}
+
+.offers {
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    text-indent: 40%;
+}
+
+img {
+    border: 10px solid #ddd;
+    width:540px; /* you can use % */
+    height: auto;
+    border-radius: 50%;
+    
+  }

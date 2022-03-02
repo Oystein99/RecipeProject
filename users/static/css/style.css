@@ -1,0 +1,230 @@
+#profilePicture{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 6px solid;
+    border-radius: 100%;
+    border-color: #008A43;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+.profile{
+    padding-top: 7%;
+    padding-left: 3%;
+    display: flex;
+}
+.left-col{
+    position: relative;
+    display: inline-block;
+    z-index: 7;
+}
+.left-col h1, .left-col h4, .left-col p{
+    position: relative;
+    text-align: center;
+}
+.left-col h4{
+    color: #777;
+}
+.left-col textarea{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 120%;
+    border-style: none;
+    resize: none;
+    height: 16%;
+    display: inline-block;
+    background-color: white;
+    cursor: text;
+}
+.edit{
+    margin-top: 20%;
+    border-radius: 20px;
+    background-color: #F7F7F7;
+    box-shadow: 4px 10px 7px;
+    color: #DDD;
+}
+
+.editNoClick{
+    margin-top: 20%;
+    border-radius: 0px;
+    background-color:'#FFF';
+    box-shadow: '0px';
+
+}
+.edit p, .editNoClick p{
+    color: #444;
+}
+.edit button:first-child, .editNoClick button:first-child{
+    top: 50vh;
+}
+.edit button, .editNoClick button{
+    position: absolute;
+    top: 58vh;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 20px;
+    background-color: #008A43;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 10%;
+}
+
+
+.form {
+    position: absolute;
+    top: 60vh;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 10%;
+    padding-left: 10%;
+    background-color: #DDD;
+    border-radius: 10px;
+}
+.form button{
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
+.edit button:first-child{
+    display: none;
+}
+
+.edit button:hover, .editNoClick button:hover{
+    background-color: #006A23;
+}
+
+.recipewrap {
+    margin-top: 5%;
+    float: left;
+    box-shadow: 2px 8px 9px;
+    border-radius: 10px;
+    color: #DDD;
+    padding: 20px;
+    height: 30em;
+    margin: auto;
+    margin: 10px;
+    display: table;
+    width: 20em;
+}
+.timetomake{
+    color: #333
+}
+.recipewrap:hover {
+    cursor: pointer;
+}
+.image img{
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    width: 100%;
+    height: 90%;
+}
+.image{
+    position: relative;
+    top: 10%;
+    height: 50%;
+}
+.name {
+    background-color: #008A43;
+    border-radius: 20px;
+    color: white;
+    float: left;
+    text-align: center;
+    font-weight: bolder;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.name h2{
+    font-size: 22px;
+}
+.rightcol {
+    text-align: center;
+    position: relative;
+    top: 5%;
+}
+
+.recipes {
+    position: relative;
+    left: 10%;
+    top: 20vh;
+    float: left;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.likedRecipes{
+    position: relative;
+    left: 10%;
+    top: 20vh;
+    float: left;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.planning{
+    position: relative;
+    left: 10%;
+    top: 20vh;
+    float: left;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
+.header {
+    overflow: hidden;
+    padding: 20px 20px;
+}
+
+.Easy{
+    color: #2C7F21;
+}
+
+.Medium{
+    color: #FCC254;
+}
+.Hard{
+    color: #ED4A4A;
+}
+
+.tabs{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    height: 100%;
+}
+.tabs ul{
+    list-style: none;
+    position: relative;
+    top: 10%;
+  
+}
+.tabs li{
+    display: inline-block;
+    margin-left: 10%;
+    left: 20%;
+    position: relative;
+}
+.tabs button{
+    border-style: none;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+.active{
+    color: #008A43;
+}
+#saveButton{
+    left: 55%;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block header %}
+
+    {% endblock  %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <title>{% block title%} BASE TITLE {% endblock %}</title>
+
+</head>
+<body>
+    <nav class="nav-links">
+        <ul>
+            <li onclick=index()>
+            <a href="{% url 'index' %}" >
+                <img src={% static 'idea_logo.png'%} />                       
+            </a>      
+            </li>
+            <li onclick=recipes()> 
+                <a href="{% url 'recipes' %}">Recipes</a> 
+            </li>
+            {%if not user.is_authenticated%}
+                <li onclick=login() style="float: right;"> 
+                    <a href="{% url 'login' %}" >Login</a> 
+                </li>
+                <li onclick=register() style="float: right;"> 
+                    <a href="{% url 'register' %}" >Register</a> 
+                </li>
+            {% else %}
+                <li onclick=profile() style="float: right;"> 
+                    <a href="{% url 'profile' %}" >My page</a> 
+                </li>
+                <li onclick=logout() style="float: right;"> 
+                    <a href="{% url 'logout' %}" >Log out</a> 
+                </li>
+            {% endif %}
+        </ul> 
+    </nav>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
+<script>
+    function index(){
+        window.location.href = "{% url 'index' %}";
+    }
+    function register(){
+        window.location.href = "{% url 'register' %}";
+    }
+    function login(){
+        window.location.href = "{% url 'login' %}";
+    }
+    function profile(){
+        window.location.href = "{% url 'profile' %}";
+    }
+    function recipes(){
+        window.location.href = "{% url 'recipes' %}";
+    }
+    function logout(){
+        window.location.href = "{% url 'logout' %}";
+    }
+</script>
+{% block script %}
+
+{% endblock  %}

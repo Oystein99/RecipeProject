@@ -1,0 +1,83 @@
+.login{
+    margin-top: 2%;
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    box-shadow: 4px 10px 7px;
+    color: #DDD;
+    
+}
+.login h2{
+    position: relative;
+    text-align: center;
+    top: 50px;
+    color: #444;
+}
+
+.login input{
+    position: relative;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 4px 3px 3px #DDD;
+    top: 120px;
+    height: 45px;
+    width: 275px;
+    left: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 20px;
+}
+.login li:last-child input{
+    top: 150px;
+}
+.login label{
+    position: absolute;
+    top: 125px;
+    left: 80px;
+    color: #444;
+}
+.login li:last-child label{
+    top: 200px;
+}
+.login li{
+    list-style: none;
+}
+.login button{
+    height: 45px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #008A43;
+    top: 220px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%); 
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.login button:hover{
+    background-color: #006A23;
+}
+
+.noaccount{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 235px;
+    color: #AAA;
+}
+
+#message{
+    position: relative;
+    top: 160px;
+    left: 150px;
+    font-size: 15px;
+    color: #4C9F41;
+}
